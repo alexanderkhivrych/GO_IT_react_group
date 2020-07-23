@@ -1,0 +1,18 @@
+$primary-color: #007bff;
+$danger-color: #dc3545;
+
+
+.btn { 
+    font-size: 18px;
+    line-height: 1.5;
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+}
+.btn--primary {
+    background-color:$primary-color;
+}
+.btn--danger {
+    background-color: $danger-color;
+}

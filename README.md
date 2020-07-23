@@ -1,4 +1,4 @@
-## Занятие 1 - Компоненты и коллекции
+## Занятие 2 - Стилизация
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

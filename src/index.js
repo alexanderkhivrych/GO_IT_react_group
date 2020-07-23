@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TodoList from './TodoList';
+import TodoList from './components/TodoList';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import Header from './components/Header';
 // import Footer from './components/Footer';
@@ -21,7 +22,7 @@ import TodoList from './TodoList';
 //     </>
 // );
 
-ReactDOM.render(<TodoList/>,
+ReactDOM.render(<TodoList color="blue"/>,
   document.getElementById('root')
 );
 
