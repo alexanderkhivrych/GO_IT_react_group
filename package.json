@@ -16,7 +16,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint --ext .js,.jsx .",
-    "lint:fix": "eslint --ext .js,.jsx . --fix"
+    "lint:fix": "eslint --ext .js,.jsx . --fix",
+    "stylelint": "stylelint '**/*.scss'",
+    "stylelint:fix": "stylelint '**/*.scss' --fix"
   },
   "browserslist": {
     "production": [
@@ -35,6 +37,26 @@
     "eslint-config-react-app": "^5.2.1",
     "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.0.5",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "stylelint": "^13.2.1",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.0.0",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "yarn lint:fix",
+      "git add"
+    ],
+    "*.scss": [
+      "stylelint '**/*.scss' --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

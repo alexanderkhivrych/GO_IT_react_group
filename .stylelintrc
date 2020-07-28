@@ -1,0 +1,36 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "rule-empty-line-before": ["always", {
+      "except": ["inside-block"]
+    }],
+    "at-rule-empty-line-before": ["always", {
+      "except": ["inside-block", "after-same-name", "blockless-after-same-name-blockless"]
+    }],
+    "at-rule-no-unknown": null,
+    "max-nesting-depth": 3,
+    "font-family-no-missing-generic-family-keyword": null,
+    "string-quotes": "double",
+    "no-empty-source": null,
+    "order/properties-order": [
+      {
+        "properties": [
+          "content", "quotes",
+          "position", "top", "right", "bottom", "left", "z-index", "transform",
+          "display", "flex", "flex-basis", "flex-direction", "flex-flow", "flex-grow", "flex-shrink", "flex-wrap", "align-content", "align-items", "align-self", "justify-content", "order",
+          "width", "min-width", "max-width", "height", "min-height", "max-height",
+          "margin", "margin-top", "margin-right", "margin-bottom", "margin-left", "padding", "padding-top", "padding-right", "padding-bottom", "padding-left",
+          "border", "border-top", "border-right", "border-bottom", "border-left", "border-width", "border-top-width", "border-right-width", "border-bottom-width", "border-left-width", "border-style", "border-top-style", "border-right-style", "border-bottom-style", "border-left-style", "border-radius", "border-top-left-radius", "border-top-right-radius", "border-bottom-left-radius", "border-bottom-right-radius", "border-color", "border-top-color", "border-right-color", "border-bottom-color", "border-left-color",
+          "background", "background-color", "background-image", "background-repeat", "background-position", "background-size", "box-shadow", "fill",
+          "text-align", "text-align-last", "text-transform", "font", "font-family", "font-size", "font-stretch", "font-effect", "font-style", "font-weight", "font-emphasize", "font-emphasize-position", "font-emphasize-style", "line-height", "letter-spacing", "text-decoration", "text-indent", "text-justify", "text-overflow", "text-overflow-ellipsis", "text-overflow-mode", "text-rendering", "text-outline", "text-shadow", "text-wrap", "word-wrap", "word-break", "text-emphasis", "text-emphasis-color", "text-emphasis-style", "text-emphasis-position", "vertical-align", "white-space", "word-spacing", "hyphens", "color",
+          "visibility", "box-sizing", "overflow", "overflow-x", "overflow-y",
+          "transition", "transition-property", "transition-duration", "transition-timing-function", "transition-delay",
+          "animation", "animation-name", "animation-duration", "animation-play-state", "animation-timing-function", "animation-delay", "animation-iteration-count", "animation-direction"
+        ]
+      }
+    ]
+  }
+}
