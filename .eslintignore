@@ -1,0 +1,12 @@
+.env/**
+build/**
+config/**
+scripts/**
+coverage/**
+dist/**
+public/manifest.json
+node_modules/**
+*.spec.js
+package.json
+services-config-overrides.example.json
+services-config-overrides.json
