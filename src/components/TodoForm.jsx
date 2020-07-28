@@ -5,6 +5,8 @@ class TodoForm extends Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
   };
+
+  
   state = {
     value: '',
   };
