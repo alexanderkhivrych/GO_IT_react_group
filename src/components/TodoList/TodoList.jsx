@@ -20,6 +20,7 @@ class TodoList extends Component {
   handleDeleteItem = (id) => () => {
     const { items } = this.state;
     console.log(id);
+
     this.setState({ items: items.filter(({ id: currentId }) => currentId !== id) });
   };
   render() {

@@ -16,6 +16,7 @@ class Time extends Component {
   get time() {
     return this.state.time.getHours() + ':' + this.state.time.getMinutes();
   }
+
   handleRefresh = (evt) => {
     this.setState((props, state) => {});
     this.setState(
