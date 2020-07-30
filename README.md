@@ -1,4 +1,4 @@
-## Занятие 3 - События и состояние
+## Занятие 3 - Forms
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
