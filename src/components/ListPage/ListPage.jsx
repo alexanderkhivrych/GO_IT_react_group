@@ -27,7 +27,7 @@ class ListPage extends Component {
   };
   componentDidMount() {
     this.setState({ gifs: { ...this.state.gifs, loading: true } });
-    giphy.fetchTrendingGifs({ limit: 10 }).then(({ data, error }) => {
+    giphy.fetchTrendingGifs({ limit: 12 }).then(({ data, error }) => {
       this.setState({
         gifs: { ...this.state.gifs, pagination: data?.pagination, data: data?.data || [], error, loading: false },
       });
@@ -41,7 +41,7 @@ class ListPage extends Component {
 
     const newOffset = pagination.offset + pagination.count;
 
-    giphy.searchGifs({ limit: 10, q: 'dsadsadas', offset: newOffset }).then(({ data, error }) => {
+    giphy.searchGifs({ limit: 12, q: 'Footbal', offset: newOffset }).then(({ data, error }) => {
       this.setState({ gifs: { data: [...currentData, ...(data?.data || [])], error, pagination: data?.pagination } });
     });
   };
@@ -62,13 +62,13 @@ class ListPage extends Component {
 
     return (
       <div className={classes.root}>
-        <GridList cellHeight={180} className={classes.gridList}>
-          <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
+        <GridList cellHeight={180} className={classes.gridList} cols={3}>
+          <GridListTile key="Subheader" cols={3} style={{ height: 'auto' }}>
             {/* <ListSubheader component="div"></ListSubheader> */}
           </GridListTile>
-          {data.map(({ id, slug, title, images: { original: { url } } }) => (
+          {data.map(({ id, slug, title, images: { original, preview_gif } }) => (
             <GridListTile key={id}>
-              <img src={url} alt={slug} />
+              <img src={preview_gif?.url || original?.url} alt={slug} />
               <GridListTileBar
                 title={title}
                 actionIcon={
@@ -80,7 +80,6 @@ class ListPage extends Component {
             </GridListTile>
           ))}
         </GridList>
-
         {pagination.offset + pagination.count <= pagination.total_count && (
           <Button onClick={this.handleLoadMore} variant="contained" color="secondary">
             Load More
