@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ListPage } from './components';
+import App from './components/App';
 
-ReactDOM.render(<ListPage />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));

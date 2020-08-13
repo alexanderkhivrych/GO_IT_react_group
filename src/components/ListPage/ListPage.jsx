@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { GridList, GridListTile, GridListTileBar, IconButton, CircularProgress, Button } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
+import { Route, Switch, Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
+import { parse } from 'qs';
 import { giphy } from '../../api';
 
 const styles = (theme) => ({
@@ -27,6 +29,10 @@ class ListPage extends Component {
   };
   componentDidMount() {
     this.setState({ gifs: { ...this.state.gifs, loading: true } });
+    if (this.props.location.search) {
+      const search = parse(this.props.location.search, { ignoreQueryPrefix: true });
+      console.log(search);
+    }
     giphy.fetchTrendingGifs({ limit: 12 }).then(({ data, error }) => {
       this.setState({
         gifs: { ...this.state.gifs, pagination: data?.pagination, data: data?.data || [], error, loading: false },
@@ -45,13 +51,17 @@ class ListPage extends Component {
       this.setState({ gifs: { data: [...currentData, ...(data?.data || [])], error, pagination: data?.pagination } });
     });
   };
+  handleSearch = (e) => {
+    e.preventDefault();
+
+    this.props.history.replace({ query: { search: 'Test' }, search: 'search=test' });
+  };
 
   render() {
     const { classes } = this.props;
     const {
       gifs: { data, error, loading, pagination },
     } = this.state;
-
     if (error) {
       return <Alert severity="error">{error}</Alert>;
     }
@@ -60,8 +70,23 @@ class ListPage extends Component {
       return <CircularProgress />;
     }
 
+    const {
+      match: { path, url },
+    } = this.props;
+
     return (
       <div className={classes.root}>
+        <form id="search-form" onSubmit={this.handleSearch}>
+          <input type="text" placeholder="Search gifs" />
+          <button type="submit">search</button>
+        </form>
+        <Switch>
+          <Route path={`${path}/fun`} exact render={() => <div>Fun gifs</div>} />
+          <Route path={`${path}/love`} render={() => <div>Love gifs</div>} />
+        </Switch>
+        <Link to={`${url}/fun`}> go to Fun </Link>
+        {this.props.location.state?.showInfoMessage && <div>Hello my friend</div>}
+        Current category {this.props.match.params.category}
         <GridList cellHeight={180} className={classes.gridList} cols={3}>
           <GridListTile key="Subheader" cols={3} style={{ height: 'auto' }}>
             {/* <ListSubheader component="div"></ListSubheader> */}
