@@ -1,27 +1,14 @@
 import React from 'react';
-import { Route, Switch, Redirect, Link } from 'react-router-dom';
-import ListPage from './ListPage';
-import NotFoundPage from './NotFoundPage';
+import { Route, Switch } from 'react-router-dom';
+import Example1 from './Example1';
+import Example2 from './Example2';
+import Example3 from './Example3/Example3';
 
 const Routes = () => (
   <Switch>
-    <Route path="/" exact component={ListPage} />
-    <Route path="/list/:category?" component={ListPage} />
-    <Route
-      path="/about"
-      render={() => (
-        <div>
-          About
-          <Link to={{ pathname: '/', state: { showInfoMessage: true }, query: { showInfoMessage: true } }}>
-            {' '}
-            Back to home
-          </Link>
-        </div>
-      )}
-    />
-
-    <Route path="/404" component={NotFoundPage} />
-    <Redirect to="/" />
+    <Route path="/example-1" component={Example1} />
+    <Route path="/example-2" component={Example2} />
+    <Route path="/example-3" component={Example3} />
   </Switch>
 );
 

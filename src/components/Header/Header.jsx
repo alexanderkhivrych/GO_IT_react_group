@@ -4,15 +4,14 @@ import './Header.css';
 
 const Header = () => (
   <>
-    <NavLink exact to="/" activeClassName="active">
-      Home
+    <NavLink exact to="/example-1" activeClassName="active">
+      Example1
     </NavLink>
-
-    <NavLink to="/list" activeClassName="active">
-      List
+    <NavLink exact to="/example-2" activeClassName="active">
+      Example2
     </NavLink>
-    <NavLink to="/about" activeClassName="active">
-      About Us
+    <NavLink exact to="/example-3" activeClassName="active">
+      Example3
     </NavLink>
   </>
 );
