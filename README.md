@@ -1,4 +1,4 @@
-## Занятие 10 - Animation
+## Занятие 11 - Intro to react redux
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
