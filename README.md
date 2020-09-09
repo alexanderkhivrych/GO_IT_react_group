@@ -1,4 +1,4 @@
-## Занятие 11 - Intro to react redux
+## Занятие 12 - @reduxjs/toolkit
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

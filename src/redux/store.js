@@ -1,6 +1,6 @@
 import { createStore, combineReducers } from 'redux';
-import noteReducer from './reducers/note';
-import staticDocument from './reducers/static-page';
+import noteReducer from '../routes/Notes/redux/reducer';
+import staticDocument from '../routes/StaticDocument/redux/reducer';
 
 const rootReducer = combineReducers({
   notes: noteReducer,

@@ -1,12 +1,14 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Notes from './Notes';
 import StaticDocument from './StaticDocument';
-const Routes = () => (
+
+const MainRoute = () => (
   <Switch>
     <Route path="/notes" component={Notes} />
     <Route path="/:document(about|contact-us)" component={StaticDocument} />
+    <Redirect to="/notes" />
   </Switch>
 );
 
-export default Routes;
+export default MainRoute;
