@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchStaticPage } from '../../redux/actions/static-page';
+import { fetchStaticPage } from './redux/actions';
 
 const fakeData = {
   about: {

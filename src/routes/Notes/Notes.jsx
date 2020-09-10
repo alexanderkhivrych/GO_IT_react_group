@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addNote, deleteNote } from '../../redux/actions/note';
+import { addNote, deleteNote } from './redux/actions';
 import faker from 'faker';
 
 class Notes extends Component {
