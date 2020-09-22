@@ -1,44 +1,27 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
-import { notes } from '../api';
-import noteReducer from '../routes/Notes/redux/reducer';
-import staticDocument from '../routes/StaticDocument/redux/reducer';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-const rootReducer = combineReducers({
-  notes: noteReducer,
-  staticDocument: staticDocument,
-});
+import autReducer from './reducers/auth';
 
-const loggerMiddleware = (store) => (next) => (action) => {
-  console.group(action.type);
-  console.info('dispatching', action);
-  console.groupEnd(action.type);
-
-  return next(action);
-};
-
-// const thunkMiddleware = ({ dispatch, getState }) => (next) => (action) =>
-//   typeof action === 'function' ? action(dispatch, getState) : next(action);
-
-const middlewares = [
-  loggerMiddleware,
-  thunk.withExtraArgument({
-    api: {
-      notes,
-    },
-  }),
-];
-
-const composeEnhancers = composeWithDevTools({
-  // Specify name here, actionsBlacklist, actionsCreators and other options if needed
-});
-
-const enhancer = composeEnhancers(
-  applyMiddleware(...middlewares)
-  // other store enhancers if any
+const persistedReducer = persistReducer(
+  {
+    key: 'auth',
+    version: 1,
+    whitelist: ['auth'],
+    storage,
+  },
+  combineReducers({
+    auth: autReducer,
+  })
 );
 
-const store = createStore(rootReducer, enhancer);
+const store = configureStore({
+  reducer: persistedReducer,
+  thunk: true,
+  devTools: process.env.NODE_ENV !== 'production',
+});
+
+export const persistor = persistStore(store);
 
 export default store;

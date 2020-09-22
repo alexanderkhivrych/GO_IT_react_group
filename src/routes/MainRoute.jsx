@@ -1,13 +1,14 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import Notes from './Notes';
-import StaticDocument from './StaticDocument';
+import { Route, Switch } from 'react-router-dom';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+import Logout from './Logout';
 
 const MainRoute = () => (
   <Switch>
-    <Route path="/notes" component={Notes} />
-    <Route path="/:document(about|contact-us)" component={StaticDocument} />
-    <Redirect to="/notes" />
+    <Route path="/sign-in" component={SignIn} />
+    <Route path="/sign-up" component={SignUp} />
+    <Route path="/logout" component={Logout} />
   </Switch>
 );
 
