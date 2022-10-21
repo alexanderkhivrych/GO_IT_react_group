@@ -1,4 +1,4 @@
-#FYI: Each following lesson is a new branch.
+# FYI: Each following lesson is a new branch.
 
 For example, the lesson 2 branch name is lesson2. So you need to checkout to a specific branch using the git command `git checkout lesson2`
 
